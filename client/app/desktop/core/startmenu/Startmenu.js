@@ -12,8 +12,8 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
     ],
     controller: 'startmenu',
     margins: '0,0,0,0',
-    height: 200,
-    width: 100,
+    minHeight: 100,
+    minWidth: 100,
     style: {
         '-webkit-user-select': 'none',
     },
@@ -24,17 +24,54 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
         // height : 20
     },
     items: [{
-            xtype: 'label',
-            text: 'test'
-                    // width : 150
-                    //  xtype: 'button',
-                    //   text: 'start',
-                    //handler: 'toggle'
-        },
-        {
-            xtype: 'button',
-            text: 'Logout',
-            margin: '10 0',
-            handler: 'onLogout'
+            layout: 'hbox',
+            align: 'stretch',
+            //layoutConfig: { align: "stretch" },
+            items: [{
+                    xtype: 'panel',
+                    //margin: '0 10 0 5',
+                    padding: 5,
+                    layout: 'vbox',
+                    flex: 1,
+                    items: [{
+                            xtype: 'label',
+                            text: 'test'
+                                    // width : 150
+                                    //  xtype: 'button',
+                                    //   text: 'start',
+                                    //handler: 'toggle'
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Routage'
+                                    // width : 150
+                                    //  xtype: 'button',
+                                    //   text: 'start',
+                                    //handler: 'toggle'
+                        }
+                    ]},
+                {
+                    xtype: 'panel',
+                    padding: 5,
+                    layout: 'vbox',
+                    flex: 1,
+                    bodyStyle: {
+                        'background': 'grey'
+                    },
+                    items: [
+                        {
+                            xtype: 'button',
+                            text: 'Mon profil',
+                            // margin: '10 0',
+                            //handler: 'onLogout'
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Se deconnecter',
+                            // margin: '10 0',
+                            handler: 'onLogout'
+                        }
+                    ]
+                }]
         }]
 });

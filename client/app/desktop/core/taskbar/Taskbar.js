@@ -32,7 +32,13 @@ Ext.define('Desktop.desktop.core.taskbar.Taskbar', {
                     text: 'Menu',
                     enableToggle: true,
                     border: 0,
-                    handler: 'toggle'
+                    handler: 'toggle',
+                    /*listeners: {
+                        focusleave: function () {
+                            StartMenu.hide();
+                            StartMenu.showed = false;
+                        }
+                    }*/
                 },
                 {
                     xtype: 'tbseparator'
