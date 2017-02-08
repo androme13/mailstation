@@ -1,0 +1,44 @@
+/**
+ * This class is the controller for the main view for the application. It is specified as
+ * the "controller" of the Main view class.
+ *
+ * TODO - Replace this content of this view to suite the needs of your application.
+ */
+Ext.define('Desktop.view.main.MainController', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.main',
+    listen: {
+        controller: {
+            'startmenu': {
+                logoutEvent: 'onLogout'
+            }
+        }
+    },
+    onItemSelected: function (sender, record) {
+        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
+    },
+    onConfirm: function (choice) {
+        if (choice === 'yes') {
+            //
+        }
+    },
+    onClickButton: function () {
+        // Remove the localStorage key/value
+        localStorage.removeItem('TutorialLoggedIn');
+
+        // Remove Main View
+        this.getView().destroy();
+
+        // Add the Login Window
+        Ext.create({
+            xtype: 'login'
+        });
+    },
+    onLogout: function () {
+        this.getView().destroy();
+        //this.getView().hide();
+        Ext.create({
+            xtype: 'login'
+        });
+    }
+});

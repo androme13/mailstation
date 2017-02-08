@@ -1,0 +1,27 @@
+{
+  "name": "zimbradmin",
+  "version": "0.0.1",
+  "description": "Zimbradmin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Androme",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "extdirect": "^2.0.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "mysql": "^2.12.0",
+    "nodemon": "^1.11.0",
+    "winston": "^2.3.0",
+    "winston-color": "^1.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "rootNamespace": "ExtRemote",
+    "apiName": "REMOTING_API",
+    "apiUrl": "/directapi",
+    "classRouteUrl": "/direct",
+    "classPath": "/direct",
+    "server": "10.0.0.19",
+    "port": "443",
+    "protocol": "https",
+    "timeout": 300000,
+    "cacheAPI": false,
+    "relativeUrl": false,
+    "appendRequestResponseObjects": true,
+    "appendRequestRequestObjects": true,
+    "enableMetadata": true,
+    "responseHelper": true,
+    "enableProcessors": true
+}
