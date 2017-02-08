@@ -9,7 +9,7 @@ Ext.application({
     extend: 'Desktop.Application',
 
     requires: [
-        'Desktop.view.main.Main'
+        'Desktop.desktop.core.main.Main'
     ]
 
     // The name of the initial view to create. With the classic toolkit this class

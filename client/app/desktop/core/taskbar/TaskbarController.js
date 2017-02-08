@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.view.taskbar.TaskbarController', {
+Ext.define('Desktop.desktop.core.taskbar.TaskbarController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.taskbar',
     init: function () {

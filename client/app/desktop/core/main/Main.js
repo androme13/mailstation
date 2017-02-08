@@ -5,14 +5,14 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Desktop.view.main.Main', {
+Ext.define('Desktop.desktop.core.main.Main', {
     extend: 'Ext.panel.Panel',
     xtype: 'app-main',
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-        'Desktop.view.main.MainController',
-        'Desktop.view.taskbar.Taskbar',
+        'Desktop.desktop.core.main.MainController',
+        'Desktop.desktop.core.taskbar.Taskbar',
     ],
     controller: 'main',
     //viewModel: 'main',

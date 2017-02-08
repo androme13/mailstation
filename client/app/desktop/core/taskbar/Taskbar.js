@@ -12,11 +12,11 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Desktop.view.taskbar.Taskbar', {
+Ext.define('Desktop.desktop.core.taskbar.Taskbar', {
     requires: [
-        'Desktop.view.startmenu.Startmenu',
-        'Desktop.view.taskbar.Trayclock',
-        'Desktop.view.taskbar.TaskbarController'
+        'Desktop.desktop.core.startmenu.Startmenu',
+        'Desktop.desktop.core.taskbar.Trayclock',
+        'Desktop.desktop.core.taskbar.TaskbarController'
     ],
     extend: 'Ext.panel.Panel',
     xtype: 'app-main-taskbar',
@@ -48,7 +48,7 @@ Ext.define('Desktop.view.taskbar.Taskbar', {
         }],
     listeners: {
         added: function () {
-            StartMenu = Ext.create('Desktop.view.startmenu.Startmenu', {
+            StartMenu = Ext.create('Desktop.desktop.core.startmenu.Startmenu', {
                 floating: true,
             });
         },

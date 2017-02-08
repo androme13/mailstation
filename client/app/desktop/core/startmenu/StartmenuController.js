@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.view.startmenu.StartmenuController', {
+Ext.define('Desktop.desktop.core.startmenu.StartmenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.startmenu',
     init: function () {

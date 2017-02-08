@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.view.login.LoginController', {
+Ext.define('Desktop.desktop.core.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 
@@ -14,7 +14,7 @@ Ext.define('Desktop.view.login.LoginController', {
         // a server-side lookup. We'll just move forward for the sake of this example.
 
         // Set the localStorage value to true
-        localStorage.setItem("TutorialLoggedIn", true);
+        localStorage.setItem("LoggedIn", true);
 
         // Remove Login Window
         this.getView().destroy();

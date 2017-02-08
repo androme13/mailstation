@@ -5,7 +5,7 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Desktop.view.main.Main', {
+Ext.define('Desktop.desktop.core.main.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'app-main',
 
@@ -13,9 +13,9 @@ Ext.define('Desktop.view.main.Main', {
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
 
-        'Desktop.view.main.MainController',
-        'Desktop.view.main.MainModel',
-        'Desktop.view.main.List'
+        'Desktop.desktop.core.main.MainController',
+        'Desktop.desktop.core.main.MainModel',
+        'Desktop.desktop.core.main.List'
     ],
 
     controller: 'main',

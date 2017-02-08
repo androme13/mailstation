@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.view.startmenu.Startmenu', {
+Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
     extend: 'Ext.panel.Panel',
     xtype: 'app-main-taskbar-startmenu',
     requires: [
-        'Desktop.view.startmenu.StartmenuController',
+        'Desktop.desktop.core.startmenu.StartmenuController',
     ],
     controller: 'startmenu',
     margins: '0,0,0,0',

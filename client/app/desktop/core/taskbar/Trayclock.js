@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.view.taskbar.Trayclock', {
+Ext.define('Desktop.desktop.core.taskbar.Trayclock', {
     extend: 'Ext.toolbar.TextItem',
     xtype: 'deskclock',
     alias: 'widget.trayclock',

@@ -1,7 +1,7 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('Desktop.view.main.List', {
+Ext.define('Desktop.desktop.core.main.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'mainlist',
 
