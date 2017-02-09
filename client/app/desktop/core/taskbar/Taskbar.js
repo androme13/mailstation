@@ -33,12 +33,15 @@ Ext.define('Desktop.desktop.core.taskbar.Taskbar', {
                     enableToggle: true,
                     border: 0,
                     handler: 'toggle',
-                    /*listeners: {
+                    listeners: {
                         focusleave: function () {
-                            StartMenu.hide();
-                            StartMenu.showed = false;
+                            console.log("fermeture startmenu");
+                            if (StartMenu.mouseIn === false) {
+                                StartMenu.hide();
+                                StartMenu.showed = false;
+                            }
                         }
-                    }*/
+                    }
                 },
                 {
                     xtype: 'tbseparator'

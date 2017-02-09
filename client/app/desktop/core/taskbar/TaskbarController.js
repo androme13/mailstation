@@ -15,7 +15,7 @@ Ext.define('Desktop.desktop.core.taskbar.TaskbarController', {
         {
             this.pressed = true;
             StartMenu.show();
-            //StarfMenu.focus();
+            StartMenu.focus();
             StartMenu.showed = true;
         } else
         {

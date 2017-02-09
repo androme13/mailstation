@@ -14,6 +14,7 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
     margins: '0,0,0,0',
     minHeight: 100,
     minWidth: 100,
+    mouseIn: false,
     style: {
         '-webkit-user-select': 'none',
     },
@@ -69,9 +70,21 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
                             xtype: 'button',
                             text: 'Se deconnecter',
                             // margin: '10 0',
-                            handler: 'onLogout'
+                            handler: 'onLogout',
                         }
                     ]
                 }]
-        }]
+        }],
+    listeners: {
+        focusover: function () {
+            console.log("mousein");
+
+            mouseIn = true;
+        },
+        focusleave: function () {
+            console.log("mouseout");
+
+            mouseIn = false;
+        }
+    }
 });
