@@ -11,6 +11,7 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
+        'Desktop.view.desktop.core.windows.WindowsManagerController',
         'Desktop.view.desktop.core.main.MainController',
         'Desktop.view.desktop.core.taskbar.Taskbar'
     ],

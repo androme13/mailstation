@@ -15,6 +15,7 @@
 Ext.define('Desktop.view.desktop.core.taskbar.Taskbar', {
     requires: [
         'Desktop.view.desktop.core.startmenu.Startmenu',
+        'Desktop.view.desktop.core.taskbar.WindowsList',
         'Desktop.view.desktop.core.taskbar.Trayclock',
         'Desktop.view.desktop.core.taskbar.TaskbarController'
     ],
@@ -44,7 +45,8 @@ Ext.define('Desktop.view.desktop.core.taskbar.Taskbar', {
                     }
                 },
                 {
-                    xtype: 'tbseparator'
+                    xtype: 'windowslist',
+                    margin: '0 0 0 20'
                 },
                 {
                     xtype: 'tbfill'

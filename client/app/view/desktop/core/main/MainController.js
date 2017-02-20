@@ -7,6 +7,17 @@
 Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
+    requires:[
+        'Desktop.view.desktop.core.windows.WindowsManagerController'
+    ],
+    init: function () {
+        console.log("main controller init");
+        windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
+        });
+       // console.log(windowsManager);
+        windowsManager.createWindow();
+        
+    },
     listen: {
         controller: {
             'startmenu': {
