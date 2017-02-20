@@ -13,24 +13,32 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
     init: function () {
         console.log("windowsmanager controller init");
     },
+    listen: {
+        controller: {
+            'windowslist': {
+                hideWindow: 'hideWindow',
+                showWindow: 'showWindow'
+            },
+            'window': {
+                minimizeWin: 'hideWindow',
+            }
+        }
+    },
     createWindow: function () {
-        var window1 = Ext.create('Desktop.view.desktop.core.windows.Window');
-        //Ext.WindowManager.register(window1);
-        var winInfos = new Object();
-        winInfos.title = window1.title;
-        winInfos.id = window1.id;
-        this.showWindow(window1.id);
-        this.fireEvent('createWindows', winInfos);
+        var window = Ext.create('Desktop.view.desktop.core.windows.Window');
+        // on lance l'event pour la création du bouton géré par windowlistcontroller
+        this.fireEvent('createWindows', window);
     },
     hideWindow: function (id) {
+        var win = Ext.WindowManager.get(id);
+        if (win)
+            win.hide();
 
     },
     showWindow: function (id) {
-        var win = Ext.WindowManager.get(id);
-        console.log('win id',win);
-        //win.show();
-        //Ext.WindowMgr.bringToFront(win);
-        //win.maximize();
+        var win = Ext.getCmp(id);
+        if (win)
+            win.show();
     }
 });
 

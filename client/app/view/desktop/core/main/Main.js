@@ -31,4 +31,5 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
             this.down('#app-main-taskbar').fireEvent('refreshStartMenu');
         }
     }
+    
 });

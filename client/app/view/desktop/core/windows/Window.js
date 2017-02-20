@@ -9,20 +9,20 @@ Ext.define('Desktop.view.desktop.core.windows.Window', {
         'Desktop.view.desktop.core.windows.WindowController'
     ],
     extend: 'Ext.window.Window',
-    xtype: 'app-main-window',
-    //itemId: 'app-main-windows',
-    //margins: '0,0,0,0',
-    //padding: '0,0,10,10',
+    xtype: 'app-window',
     controller: 'window',
     title: 'Hello',
+    maximizable: true,
+    minimizable: true,
+    constrain: true,
+    //constrainHeader: true,
     height: 200,
     width: 400,
-    layout: 'fit',
+   // layout: 'fit',
     items: [{
  
-        }]
-  /*  listeners: {
-
-
-    }*/
+        }],
+    listeners: {
+        minimize: 'minimizeWin'
+    }
 });

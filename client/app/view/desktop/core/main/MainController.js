@@ -7,30 +7,29 @@
 Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
-    requires:[
+    requires: [
         'Desktop.view.desktop.core.windows.WindowsManagerController'
     ],
     init: function () {
         console.log("main controller init");
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-       // console.log(windowsManager);
-        windowsManager.createWindow();
         
+    },
+    show: function () {
+
+        // console.log(windowsManager);
+
     },
     listen: {
         controller: {
             'startmenu': {
-                logoutEvent: 'onLogout'
+                logoutEvent: 'onLogout',
+                'showTestWindow': 'onShowTestWindow'
+            },
+            'windowsmanager':{
+                showWindow: 'onShowWindow'
             }
-        }
-    },
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
         }
     },
     onClickButton: function () {
@@ -52,5 +51,8 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         Ext.create({
             xtype: 'login'
         });
+    },
+    onShowTestWindow: function(){
+        windowsManager.createWindow();
     }
 });

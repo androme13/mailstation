@@ -9,5 +9,8 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     alias: 'controller.window',
     init: function () {
         console.log("window controller init");
+    },
+    minimizeWin: function(win){
+        win.hide();
     }
 });

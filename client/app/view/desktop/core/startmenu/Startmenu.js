@@ -44,7 +44,8 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
                         },
                         {
                             xtype: 'button',
-                            text: 'Routage'
+                            text: 'Routage',
+                            handler: 'showTestWindow'
                                     // width : 150
                                     //  xtype: 'button',
                                     //   text: 'start',
