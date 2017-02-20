@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.desktop.core.login.LoginController', {
+Ext.define('Desktop.view.desktop.core.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 

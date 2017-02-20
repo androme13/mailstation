@@ -4,7 +4,7 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Desktop.desktop.core.main.MainController', {
+Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     listen: {
@@ -35,6 +35,7 @@ Ext.define('Desktop.desktop.core.main.MainController', {
         });
     },
     onLogout: function () {
+        localStorage.removeItem('LoggedIn');
         this.getView().destroy();
         //this.getView().hide();
         Ext.create({

@@ -5,14 +5,14 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Desktop.desktop.core.main.Main', {
+Ext.define('Desktop.view.desktop.core.main.Main', {
     extend: 'Ext.panel.Panel',
     xtype: 'app-main',
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-        'Desktop.desktop.core.main.MainController',
-        'Desktop.desktop.core.taskbar.Taskbar',
+        'Desktop.view.desktop.core.main.MainController',
+        'Desktop.view.desktop.core.taskbar.Taskbar'
     ],
     controller: 'main',
     //viewModel: 'main',
@@ -28,6 +28,6 @@ Ext.define('Desktop.desktop.core.main.Main', {
     listeners: {
         resize: function () {
             this.down('#app-main-taskbar').fireEvent('refreshStartMenu');
-        },
+        }
     }
 });

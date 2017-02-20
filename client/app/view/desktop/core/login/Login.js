@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.desktop.core.login.Login', {
+Ext.define('Desktop.view.desktop.core.login.Login', {
     extend: 'Ext.window.Window',
     xtype: 'login',
 
     requires: [
-        'Desktop.desktop.core.login.LoginController',
+        'Desktop.view.desktop.core.login.LoginController',
         'Ext.form.Panel'
     ],
     

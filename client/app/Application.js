@@ -9,8 +9,8 @@ Ext.define('Desktop.Application', {
     stores: [
     ],
     views: [
-        'Desktop.desktop.core.login.Login',
-        'Desktop.desktop.core.main.Main'
+        'Desktop.view.desktop.core.login.Login',
+        'Desktop.view.desktop.core.main.Main'
     ],
     launch: function () {
         // It's important to note that this type of application could use
@@ -33,5 +33,5 @@ Ext.define('Desktop.Application', {
                     }
                 }
         );
-    },
+    }
 });

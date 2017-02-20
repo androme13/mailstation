@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.desktop.core.taskbar.Trayclock', {
+Ext.define('Desktop.view.desktop.core.taskbar.Trayclock', {
     extend: 'Ext.toolbar.TextItem',
     xtype: 'deskclock',
     alias: 'widget.trayclock',
     style:{
-        '-webkit-user-select':'none',
+        '-webkit-user-select':'none'
     },
     html: '&#160;',
     timeFormat: 'G:i',

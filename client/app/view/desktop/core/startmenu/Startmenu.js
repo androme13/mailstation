@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
+Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
     extend: 'Ext.panel.Panel',
     xtype: 'app-main-taskbar-startmenu',
     requires: [
-        'Desktop.desktop.core.startmenu.StartmenuController',
+        'Desktop.view.desktop.core.startmenu.StartmenuController'
     ],
     controller: 'startmenu',
     margins: '0,0,0,0',
@@ -16,11 +16,11 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
     minWidth: 100,
     mouseIn: false,
     style: {
-        '-webkit-user-select': 'none',
+        '-webkit-user-select': 'none'
     },
     showed: false,
     header: {
-        title: "test",
+        title: "test"
         // margins: '0,0,0,0',
         // height : 20
     },
@@ -62,7 +62,7 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
                     items: [
                         {
                             xtype: 'button',
-                            text: 'Mon profil',
+                            text: 'Mon profil'
                             // margin: '10 0',
                             //handler: 'onLogout'
                         },
@@ -70,13 +70,13 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
                             xtype: 'button',
                             text: 'Se deconnecter',
                             // margin: '10 0',
-                            handler: 'onLogout',
+                            handler: 'onLogout'
                         }
                     ]
                 }]
         }],
     listeners: {
-        focusover: function () {
+       /* focusover: function () {
             console.log("mousein");
 
             mouseIn = true;
@@ -85,6 +85,6 @@ Ext.define('Desktop.desktop.core.startmenu.Startmenu', {
             console.log("mouseout");
 
             mouseIn = false;
-        }
+        }*/
     }
 });
