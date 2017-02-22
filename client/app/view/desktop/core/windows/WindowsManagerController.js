@@ -18,6 +18,10 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
             'windowslist': {
                 activateWindow: 'activateWindow',
                 hideWindow: 'hideWindow',
+                maximizeWindow: 'maximizeWindow',
+                minimizeWindow: 'minimizeWindow',
+                restoreFromMaxWindow: 'restoreFromMaxWindow',
+                restoreFromMinWindow: 'restoreFromMinWindow',
                 showWindow: 'showWindow',
                 closeWindow: 'closeWindow'
             },
@@ -36,8 +40,8 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
         var window = Ext.getCmp(id);
         window.close();
     },
-    createWindow: function () {
-        var window = Ext.create('Desktop.view.desktop.core.windows.Window');
+    createWindow: function (place) {
+        var window = place.add(Ext.create('Desktop.view.desktop.core.windows.Window'));
         // on lance l'event pour la création du bouton géré par windowlistcontroller
         this.fireEvent('createWindow', window);
     },
@@ -46,6 +50,25 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
         if (win)
             win.hide();
 
+    },
+    maximizeWindow: function (id) {
+        var window = Ext.getCmp(id);
+        window.show();
+        window.maximize();
+    },
+    minimizeWindow: function (id) {
+        var window = Ext.getCmp(id);
+        window.minimize();
+    },
+    restoreFromMaxWindow: function (id) {
+        var window = Ext.getCmp(id);
+        console.log('restore');
+        window.restore();
+    },
+    restoreFromMinWindow: function (id) {
+        var window = Ext.getCmp(id);
+        console.log('restore');
+        window.show();
     },
     showWindow: function (id) {
         var win = Ext.getCmp(id);

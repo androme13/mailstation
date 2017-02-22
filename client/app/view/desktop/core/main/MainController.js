@@ -53,6 +53,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         });
     },
     onShowWindow: function(){
-        windowsManager.createWindow();
+        console.log(this.view);
+        windowsManager.createWindow(this.view);
     }
 });

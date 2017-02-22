@@ -24,11 +24,11 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
             items: [
                 {
                     text: 'Maximiser',
-                    // handler: this.closeByContextMenu
+                    handler: this.maximizeByContextMenu
                 },
                 {
                     text: 'Minimiser',
-                    //handler: edit
+                    handler: this.minimizeByContextMenu
                 },
                 {
                     text: 'Fermer',
@@ -69,6 +69,36 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
     },
     closeByContextMenu: function (item) {
         var button = Ext.getCmp(item.up().buttonParent);
-        button.up().getController().fireEvent('closeWindow',button.winId);
+        button.up().getController().fireEvent('closeWindow', button.winId);
+    },
+    maximizeByContextMenu: function (item) {
+        var button = Ext.getCmp(item.up().buttonParent);
+        var menuText = this.text;
+        if (menuText ==='Maximiser')
+        {
+            button.up().getController().fireEvent('maximizeWindow', button.winId);
+            this.setText('Restaurer');
+        }
+        else
+        {
+            button.up().getController().fireEvent('restoreFromMaxWindow', button.winId);
+            this.setText('Maximiser');
+        }
+        //button.up().getController().fireEvent('maximizeWindow', button.winId);
+    },
+    minimizeByContextMenu: function (item) {        
+        var button = Ext.getCmp(item.up().buttonParent);
+        var menuText = this.text;
+        if (menuText ==='Minimiser')
+        {
+            button.up().getController().fireEvent('minimizeWindow', button.winId);
+            this.setText('Restaurer');
+        }
+        else
+        {
+            button.up().getController().fireEvent('restoreFromMinWindow', button.winId);
+            this.setText('Minimiser');
+        }
+
     }
 });
