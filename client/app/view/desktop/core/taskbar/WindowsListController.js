@@ -41,6 +41,7 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
             contextMenu: buttonContextMenu,
             tooltip: window.title,
             border: 0,
+            margin: "0 5 0 0",
             enableToggle: true,
             winId: window.id,
             pressed: true,

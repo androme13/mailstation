@@ -11,8 +11,5 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsList', {
       'Desktop.view.desktop.core.taskbar.WindowsListController'  
     ],
     alias: 'widget.windowslist',
-    controller: 'windowslist',
-    //items: [{
-   //}]
-
+    controller: 'windowslist'
 });

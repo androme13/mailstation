@@ -9,6 +9,15 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     alias: 'controller.window',
     init: function () {
         console.log("window controller init");
+        //Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting', function () {
+        //    console.log('module require');
+       // });
+        console.log(this);
+       // view.items
+       //        windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
+       // });
+        module = Ext.create('Desktop.view.modules.emailsrouting.EmailsRouting',{});
+        this.view.add(module);
     },
     minimizeWin: function (win) {
         this.view.hide();
