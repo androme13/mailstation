@@ -18,11 +18,11 @@ Ext.define('Desktop.view.desktop.core.windows.Window', {
     //constrainHeader: true,
     height: 200,
     width: 400,
-   // layout: 'fit',
+    // layout: 'fit',
     items: [{
- 
         }],
     listeners: {
-        minimize: 'minimizeWin'
+        minimize: 'minimizeWin',
+        close: 'closeWin'
     }
 });

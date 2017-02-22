@@ -10,7 +10,10 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     init: function () {
         console.log("window controller init");
     },
-    minimizeWin: function(win){
-        win.hide();
+    minimizeWin: function (win) {
+        this.view.hide();
+    },
+    closeWin: function (win) {
+        this.fireEvent('winClose', win);
     }
 });

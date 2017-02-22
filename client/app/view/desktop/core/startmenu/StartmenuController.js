@@ -13,8 +13,8 @@ Ext.define('Desktop.view.desktop.core.startmenu.StartmenuController', {
     onLogout: function () {
         this.fireEvent('logoutEvent');
     },
-    showTestWindow: function(){
-        this.fireEvent('showTestWindow');
+    showWindow: function(){
+        this.fireEvent('showWindow');
     }
 });
 

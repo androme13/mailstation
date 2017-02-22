@@ -25,7 +25,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         controller: {
             'startmenu': {
                 logoutEvent: 'onLogout',
-                'showTestWindow': 'onShowTestWindow'
+                'showWindow': 'onShowWindow'
             },
             'windowsmanager':{
                 showWindow: 'onShowWindow'
@@ -52,7 +52,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             xtype: 'login'
         });
     },
-    onShowTestWindow: function(){
+    onShowWindow: function(){
         windowsManager.createWindow();
     }
 });
