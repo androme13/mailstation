@@ -31,7 +31,6 @@ Ext.define('Desktop.view.desktop.core.taskbar.Taskbar', {
                 {
                     xtype: 'button',
                     text: 'Menu',
-                    enableToggle: true,
                     border: 0,
                     handler: 'toggle',
                     listeners: {

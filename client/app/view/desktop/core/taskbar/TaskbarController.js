@@ -10,16 +10,14 @@ Ext.define('Desktop.view.desktop.core.taskbar.TaskbarController', {
     init: function () {
         console.log("taskbar controller init");
     },
-    toggle: function (val) {
-        if (StartMenu.showed === false || val === true)
+    toggle: function () {
+        if (StartMenu.showed === false)
         {
-            this.pressed = true;
             StartMenu.show();
             StartMenu.focus();
             StartMenu.showed = true;
-        } else
+        } else if (StartMenu.showed === true)
         {
-            this.pressed = false;
             StartMenu.hide();
             StartMenu.showed = false;
         }
@@ -40,6 +38,6 @@ Ext.define('Desktop.view.desktop.core.taskbar.TaskbarController', {
     },
     closeMenu: function (win) {
         if (StartMenu.showed === true)
-            this.toggle(false);
+            this.toggle();
     }
 });
