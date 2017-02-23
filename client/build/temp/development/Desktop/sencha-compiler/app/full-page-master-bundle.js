@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /home/thierry/mailstation/client/app.js
+// @require C:\Users\thierry\mailstation\client\app.js
