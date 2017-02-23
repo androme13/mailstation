@@ -8,7 +8,6 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     requires: [
-        'Desktop.directapi.DirectAPI',
         'Desktop.view.desktop.core.windows.WindowsManagerController'
     ],
     init: function () {

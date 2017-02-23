@@ -9,6 +9,7 @@ Ext.application({
     extend: 'Desktop.Application',
 
     requires: [
+        'Desktop.directapi.DirectAPI',
         'Desktop.view.desktop.core.main.Main'
     ]
 

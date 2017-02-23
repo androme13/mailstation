@@ -1,4 +1,4 @@
-
+// mailstation server side
 
 
 /*if(!global['App']) {
