@@ -1,6 +1,6 @@
 {
     "ServerConfig": {
-        "host": "10.0.0.19",
+        "host": "localhost",
         "HTTPPort": 80,
         "HTTPSPort": 443,
         "logger": "dev",

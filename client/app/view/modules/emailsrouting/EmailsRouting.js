@@ -7,16 +7,16 @@
 
 Ext.define('Desktop.view.modules.emailsrouting.EmailsRouting', {
     extend: 'Ext.grid.Panel',
-    xtype: 'emailsrouting',
-    
+    startMenu: 'routage|emails',
+    startTitle:'routage',
+    windowTitle: 'Routage des emails',
+    xtype: 'emailsrouting',    
     requires: [
       'Desktop.view.modules.emailsrouting.EmailsRoutingController'  
     ],
     alias: 'widget.emailsrouting',
     controller: 'emailsrouting',
     title: 'Simpsons',
-    startMenu: 'routage|emails',
-    startTitle:'routage',
     //store: Ext.data.StoreManager.lookup('simpsonsStore'),
     columns: [
         { text: 'Name', dataIndex: 'name' },

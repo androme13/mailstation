@@ -9,11 +9,9 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     alias: 'controller.window',
     init: function () {
         console.log("window controller init");
-        //Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting', function () {
-        //    console.log('module require');
-       // });
-        console.log(this);
+        // configuration de la fenêtre par rapport au module
         module = Ext.create('Desktop.view.modules.emailsrouting.EmailsRouting');
+        this.view.title = module.windowTitle;
         this.view.down().add(module);
     },
     minimizeWin: function (win) {
@@ -22,7 +20,7 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     closeWin: function (win) {
         this.fireEvent('winClose', win);
     },
-    getFocus: function(win) {
+    getFocus: function (win) {
         this.fireEvent('gotFocus', win);
     }
 });

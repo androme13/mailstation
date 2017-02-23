@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}MailStation by Androme (2017)
+${licensePrefix}File :
+${licensePrefix}Description :
+${licensePrefix}Comment :
+<#if licenseLast??>
+${licenseLast}
+</#if>
