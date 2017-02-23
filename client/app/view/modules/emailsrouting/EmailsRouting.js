@@ -7,21 +7,24 @@
 
 Ext.define('Desktop.view.modules.emailsrouting.EmailsRouting', {
     extend: 'Ext.grid.Panel',
-    startMenu: 'routage|emails',
-    startTitle:'routage',
-    windowTitle: 'Routage des emails',
-    xtype: 'emailsrouting',    
+    launcher: {
+        menu: 'routage|emails',
+        menuTitle: 'routage',
+        windowTitle: 'Routage des emails',
+        windowIcon: '/rsc/img/icon.png'
+    },
+    xtype: 'emailsrouting',
     requires: [
-      'Desktop.view.modules.emailsrouting.EmailsRoutingController'  
+        'Desktop.view.modules.emailsrouting.EmailsRoutingController'
     ],
     alias: 'widget.emailsrouting',
     controller: 'emailsrouting',
     title: 'Simpsons',
     //store: Ext.data.StoreManager.lookup('simpsonsStore'),
     columns: [
-        { text: 'Name', dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone' }
+        {text: 'Name', dataIndex: 'name'},
+        {text: 'Email', dataIndex: 'email', flex: 1},
+        {text: 'Phone', dataIndex: 'phone'}
     ]
 });
 

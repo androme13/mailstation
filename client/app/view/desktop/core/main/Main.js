@@ -19,7 +19,8 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
     //viewModel: 'main',
     plugins: 'viewport',
     ui: 'navigation',
-    bodyStyle: {"background-color": "grey"},
+    bodyStyle: "background-image:url(app/view/desktop/core/wallpapers/black-and-white-city-skyline-buildings.jpg) !important",
+    //bodyStyle: {"background-color": "grey"},
     dockedItems: [{
             dock: 'bottom',
             items: [{

@@ -11,8 +11,10 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
         console.log("window controller init");
         // configuration de la fenêtre par rapport au module
         module = Ext.create('Desktop.view.modules.emailsrouting.EmailsRouting');
-        this.view.title = module.windowTitle;
+        var path = Ext.Loader.getPath('Desktop.view.modules.emailsrouting').slice(0,-3);
+        this.view.title = module.launcher.windowTitle;
         this.view.down().add(module);
+        this.view.icon = path+module.launcher.windowIcon;
     },
     minimizeWin: function (win) {
         this.view.hide();
