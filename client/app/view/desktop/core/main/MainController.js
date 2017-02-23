@@ -8,15 +8,20 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     requires: [
+        'Desktop.directapi.DirectAPI',
         'Desktop.view.desktop.core.windows.WindowsManagerController'
     ],
     init: function () {
         console.log("main controller init");
+        //Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
+        ExtRemote.core.hello.wave('Hi!',
+                function (res) {
+                    console.dir(res);
+                }
+        );
         this.doRequires();
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-        
-        
     },
     show: function () {
 
@@ -29,7 +34,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 logoutEvent: 'onLogout',
                 'showWindow': 'onShowWindow'
             },
-            'windowsmanager':{
+            'windowsmanager': {
                 showWindow: 'onShowWindow'
             }
         }
@@ -37,10 +42,8 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     onClickButton: function () {
         // Remove the localStorage key/value
         localStorage.removeItem('LoggedIn');
-
         // Remove Main View
         this.getView().destroy();
-
         // Add the Login Window
         Ext.create({
             xtype: 'login'
@@ -54,12 +57,11 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             xtype: 'login'
         });
     },
-    onShowWindow: function(){
+    onShowWindow: function () {
         console.log(this.view);
         windowsManager.createWindow(this.view);
     },
-    
-    doRequires: function(){
+    doRequires: function () {
         Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
     }
 });
