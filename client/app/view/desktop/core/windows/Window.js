@@ -24,6 +24,7 @@ Ext.define('Desktop.view.desktop.core.windows.Window', {
     listeners: {
         minimize: 'minimizeWin',
         close: 'closeWin',
-        focus: 'getFocus'
+        focusenter: 'getFocus',
+        focusleave: 'looseFocus'
     }
 });

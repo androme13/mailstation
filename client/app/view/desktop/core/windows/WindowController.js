@@ -22,5 +22,8 @@ Ext.define('Desktop.view.desktop.core.windows.WindowController', {
     },
     getFocus: function (win) {
         this.fireEvent('gotFocus', win);
+    },
+    looseFocus: function (win){
+        this.fireEvent('looseFocus', win);
     }
 });
