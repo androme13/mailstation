@@ -15,14 +15,13 @@ Ext.define('Desktop.view.modules.emailsrouting.EmailsRouting', {
     alias: 'widget.emailsrouting',
     controller: 'emailsrouting',
     title: 'Simpsons',
-    autoScroll: true,
+    startMenu: 'routage|emails',
+    startTitle:'routage',
     //store: Ext.data.StoreManager.lookup('simpsonsStore'),
     columns: [
         { text: 'Name', dataIndex: 'name' },
         { text: 'Email', dataIndex: 'email', flex: 1 },
         { text: 'Phone', dataIndex: 'phone' }
-    ],
-   // height: 200,
-    //width: 400,
+    ]
 });
 

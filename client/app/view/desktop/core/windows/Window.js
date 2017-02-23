@@ -7,7 +7,6 @@
 Ext.define('Desktop.view.desktop.core.windows.Window', {
     requires: [
         'Desktop.view.desktop.core.windows.WindowController',
-        'Desktop.view.modules.emailsrouting.EmailsRouting'
     ],
     extend: 'Ext.window.Window',
     xtype: 'app-window',
@@ -16,13 +15,14 @@ Ext.define('Desktop.view.desktop.core.windows.Window', {
     title: 'Hello',
     maximizable: true,
     minimizable: true,
-    constrain: true,
-    //constrainHeader: true,
+    constrainHeader: true,
     height: 200,
     width: 400,
-    //layout: 'fit',
-    items: [{
-        }],
+    align: 'stretch',
+    layout: 'fit',
+    items: {
+        xtype: 'panel'
+    },
     listeners: {
         minimize: 'minimizeWin',
         close: 'closeWin',

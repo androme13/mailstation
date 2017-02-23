@@ -12,8 +12,10 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     ],
     init: function () {
         console.log("main controller init");
+        this.doRequires();
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
+        
         
     },
     show: function () {
@@ -55,5 +57,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     onShowWindow: function(){
         console.log(this.view);
         windowsManager.createWindow(this.view);
+    },
+    
+    doRequires: function(){
+        Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
     }
 });
