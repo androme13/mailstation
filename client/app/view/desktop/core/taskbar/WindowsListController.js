@@ -19,10 +19,11 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
             'window': {
                 gotFocus: 'windowGetFocus',
                 looseFocus: 'windowLooseFocus',
+                windowMinimize: 'windowMinimize'
             }
         },
     },
-    activate: function(but){
+    activate: function (but) {
         this.fireEvent('activateWindow', but.winId);
         console.log('activate');
     },
@@ -57,8 +58,8 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
             listeners: {
                 click: function (but) {
                     this.up().controller.activate(but);
-                        this.up().up().up().fireEvent('activateWindow', but.winId);
-                        this.setPressed(true);
+                    this.up().up().up().fireEvent('activateWindow', but.winId);
+                    this.setPressed(true);
                 },
                 afterrender: function (button) {
                     button.el.on('contextmenu', function (e) {
@@ -119,5 +120,10 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
     windowLooseFocus: function (win) {
         var buttons = this.view.query('[winId=' + win.id.toString() + ']');
         buttons[0].setPressed(false);
+    },
+    windowMinimize: function (win) {
+        var buttons = this.view.query('[winId=' + win.id.toString() + ']');
+        var minimizeItem = buttons[0].contextMenu.query('[text=Minimiser]');
+        minimizeItem[0].setText('Restaurer');
     }
 });

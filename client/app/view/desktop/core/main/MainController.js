@@ -12,7 +12,6 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     ],
     init: function () {
         console.log("main controller init");
-        //Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
         ExtRemote.core.hello.wave('Hi!',
                 function (res) {
                     console.dir(res);
@@ -21,6 +20,10 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         this.doRequires();
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
+        shortcut = Ext.create('Ext.button.Button', {
+            text: "test",
+       
+                });
     },
     show: function () {
 
