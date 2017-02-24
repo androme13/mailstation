@@ -8,7 +8,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     requires: [
-        'Desktop.view.desktop.core.windows.WindowsManagerController'
+        //'Desktop.view.desktop.core.windows.WindowsManagerController',
     ],
     init: function () {
         console.log("main controller init");
@@ -20,10 +20,13 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         this.doRequires();
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-        shortcut = Ext.create('Ext.button.Button', {
-            text: "test",
-       
-                });
+        shortcut = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
+        });
+        shortcut.generateShortcuts();
+        console.log(shortcut.shortcuts);
+        this.view.add(shortcut.shortcuts);
+
+        console.log(this.view);
     },
     show: function () {
 
@@ -60,7 +63,6 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         });
     },
     onShowWindow: function () {
-        console.log(this.view);
         windowsManager.createWindow(this.view);
     },
     doRequires: function () {

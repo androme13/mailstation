@@ -5,22 +5,41 @@
  */
 
 Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
-    extend: 'Ext.app.ViewController',
-    alias: 'controller.window',
+    extend: 'Ext.app.Controller',
+    alias: 'controller.shortcuts',
     init: function () {
         console.log("shortcuts controller init");
+        //this.generateShortcuts();
         // configuration de la fenêtre par rapport au module
-        shortcuts =[];
-       
+        //shortcuts =[];
+
     },
-    addShortcut: function(){
-        
+    addShortcut: function () {
+
     },
-    removeShortcut: function(){
-        
+    removeShortcut: function () {
+
     },
-    getShortcuts: function(){
-        
+    getShortcuts: function () {
+
+    },
+    generateShortcuts: function () {
+        console.log("shortcuts generate init");
+        var idCSS = '' + Math.floor(Math.random() * 100);
+        Ext.util.CSS.createStyleSheet('', idCSS);
+        Ext.util.CSS.swapStyleSheet(idCSS, 'app/view/desktop/core/shortcuts/style.css');
+        this.shortcuts = {
+            xtype: 'button',
+            iconCls: 'shortcutIcon80',
+            iconAlign: 'top',
+            width: 120,
+            height: 100,
+            html: '<span class="shortcutText">Damn you hayate</span>',
+            handler: function () {
+                // this.cancelFocus();
+                console.log('shortcut button click');
+            }
+        }
     }
-    
+
 });

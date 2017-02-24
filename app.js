@@ -169,5 +169,5 @@ process.on('SIGINT', function () {
     HTTPSServer.close();
     process.exit();
 });
-logger.info("MailStation Running");
 logger.info('MailStation server listening on port %d in %s mode', serverConfig.ServerConfig.HTTPSPort, app.settings.env);
+logger.info("MailStation Running...");

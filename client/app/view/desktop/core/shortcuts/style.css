@@ -1,0 +1,26 @@
+/*
+MailStation by Androme (2017)
+File :
+Description :
+Comment :
+*/
+/* 
+    Created on : 24 févr. 2017, 12:59:49
+    Author     : thierry
+*/
+
+.shortcutIcon80 {
+    background-image: url(https://localhost/app/view/modules/emailsrouting/rsc/img/shortcut.png) !important;
+    width:80px!important;
+    height:80px!important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.shortcutText {
+    position: absolute;
+    bottom: 4px  !important;
+    left: 0%  !important;
+    text-align: center !important;
+    width: 120px !important;
+}
