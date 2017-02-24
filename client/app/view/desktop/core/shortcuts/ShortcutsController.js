@@ -30,11 +30,14 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         Ext.util.CSS.swapStyleSheet(idCSS, 'app/view/desktop/core/shortcuts/style.css');
         this.shortcuts = {
             xtype: 'button',
+            style: ' background: transparent !important;',
+            border: 0,
+            draggable: true,
             iconCls: 'shortcutIcon80',
             iconAlign: 'top',
             width: 120,
             height: 100,
-            html: '<span class="shortcutText">Damn you hayate</span>',
+            html: '<span class="shortcutText">Routage des mails</span>',
             handler: function () {
                 // this.cancelFocus();
                 console.log('shortcut button click');

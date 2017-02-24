@@ -28,7 +28,7 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
     /*items: [
      {
      xtype: 'button',
-     style: ' background: transparent !important;\n\
+     style: ' background: transparent !important;'
      background-image: url(app/view/modules/emailsrouting/rsc/img/shortcut.png) !important;width:80px!important;height:80px!important;margin-right: auto !important; margin-left: auto !important;',
      bodyStyle: 'outline: 0px',
      border: 0,
