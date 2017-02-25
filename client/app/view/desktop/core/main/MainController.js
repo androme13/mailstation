@@ -8,10 +8,16 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     requires: [
-        //'Desktop.view.desktop.core.windows.WindowsManagerController',
+        'Desktop.view.desktop.core.windows.WindowsManagerController',
+        'Desktop.view.desktop.core.modules.modulesManagerController',
+        'Desktop.view.desktop.core.shortcuts.shortcutsController'
+
     ],
     init: function () {
         console.log("main controller init");
+        modules = Ext.create('Desktop.view.desktop.core.modules.modulesManagerController', {
+        });
+        modules.init();
         ExtRemote.core.hello.wave('Hi!',
                 function (res) {
                     console.dir(res);
@@ -22,11 +28,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         });
         shortcut = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         });
-        shortcut.generateShortcuts();
+        shortcut.init();
         console.log(shortcut.shortcuts);
         this.view.add(shortcut.shortcuts);
-
-        console.log(this.view);
     },
     show: function () {
 
@@ -41,6 +45,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             },
             'windowsmanager': {
                 showWindow: 'onShowWindow'
+            },
+            'modulesmanager':{
+                
             }
         }
     },
@@ -67,5 +74,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     },
     doRequires: function () {
         Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
+    },
+    
+    createShortcuts(){
+        
     }
 });

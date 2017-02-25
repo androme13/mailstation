@@ -8,22 +8,6 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     extend: 'Ext.app.Controller',
     alias: 'controller.shortcuts',
     init: function () {
-        console.log("shortcuts controller init");
-        //this.generateShortcuts();
-        // configuration de la fenêtre par rapport au module
-        //shortcuts =[];
-
-    },
-    addShortcut: function () {
-
-    },
-    removeShortcut: function () {
-
-    },
-    getShortcuts: function () {
-
-    },
-    generateShortcuts: function () {
         console.log("shortcuts generate init");
         var idCSS = '' + Math.floor(Math.random() * 100);
         Ext.util.CSS.createStyleSheet('', idCSS);
@@ -39,10 +23,17 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
             height: 100,
             html: '<span class="shortcutText">Routage des mails</span>',
             handler: function () {
-                // this.cancelFocus();
                 console.log('shortcut button click');
             }
-        }
-    }
+        };
+    },
+    addShortcut: function () {
 
+    },
+    removeShortcut: function () {
+
+    },
+    getShortcuts: function () {
+
+    }
 });

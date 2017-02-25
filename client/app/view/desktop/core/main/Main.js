@@ -14,8 +14,6 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
         'Desktop.view.desktop.core.windows.WindowsManagerController',
         'Desktop.view.desktop.core.main.MainController',
         'Desktop.view.desktop.core.taskbar.Taskbar',
-        'Desktop.view.desktop.core.shortcuts.shortcutsController'
-
     ],
     controller: 'main',
     //viewModel: 'main',
