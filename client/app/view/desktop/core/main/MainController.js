@@ -9,7 +9,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     alias: 'controller.main',
     requires: [
         'Desktop.view.desktop.core.windows.WindowsManagerController',
-        'Desktop.view.desktop.core.modules.modulesManagerController',
+        'Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController',
         'Desktop.view.desktop.core.shortcuts.shortcutsController'
 
     ],
@@ -21,16 +21,18 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 }
         );
         this.doRequires();
-        modules = Ext.create('Desktop.view.desktop.core.modules.modulesManagerController', {
+        modules = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
         });
-        modules.init();
+        //modules.loadAllModules();
+        console.log('modules :',modules.modules);
         
+        //console.log(modules);
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
         shortcut = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         });
         shortcut.init();
-        console.log(shortcut.shortcuts);
+        //console.log(shortcut.shortcuts);
         this.view.add(shortcut.shortcuts);
     },
     show: function () {
