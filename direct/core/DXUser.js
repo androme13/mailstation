@@ -3,7 +3,7 @@
  * (C) Androme 2015
  * 
  */
-var log = global.log.child({widget_type: 'DXUser'});
+var log = global.log;
 var pool = global.pool;
 var DXCommon = require('../../tools/DXCommon.js');
 var fs = require('fs');

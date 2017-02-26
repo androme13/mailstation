@@ -3,7 +3,7 @@
  * (C) Androme 2015
  * 
  */
-var log = global.log.child({widget_type: 'DXRouter'});
+var log = global.log;
 var fs = require('fs');
 var split = require('split');
 var pool = global.pool;

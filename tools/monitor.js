@@ -3,7 +3,7 @@
  * (C) Androme 2015
  * 
  */
-var log = global.log.child({widget_type: 'DXMonitor'});
+var log = global.log;
 //global.Monitor.ZM = {};
 var exec = require('child_process').exec;
 

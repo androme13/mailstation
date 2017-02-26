@@ -30,10 +30,11 @@ var winston = require('winston')
  //new (winston.transports.File)({ filename: 'somefile.log' })
  ]
  });*/
-var logger = require("winston-color");
+global.log = require("winston-color");
+global.Monitor={};
 
-logger.info("MailStation V0.0.1");
-logger.info("MailStation Init ...");
+global.log.info("MailStation V0.0.1");
+global.log.info("MailStation Init ...");
 
 global.pool = mysql.createPool({
     connectionLimit: 100,
@@ -169,5 +170,5 @@ process.on('SIGINT', function () {
     HTTPSServer.close();
     process.exit();
 });
-logger.info('MailStation server listening on port %d in %s mode', serverConfig.ServerConfig.HTTPSPort, app.settings.env);
-logger.info("MailStation Running...");
+global.log.info('MailStation server listening on port %d in %s mode', serverConfig.ServerConfig.HTTPSPort, app.settings.env);
+global.log.info("MailStation Running...");
