@@ -15,15 +15,16 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     ],
     init: function () {
         console.log("main controller init");
-        modules = Ext.create('Desktop.view.desktop.core.modules.modulesManagerController', {
-        });
-        modules.init();
         ExtRemote.core.hello.wave('Hi!',
                 function (res) {
                     console.dir(res);
                 }
         );
         this.doRequires();
+        modules = Ext.create('Desktop.view.desktop.core.modules.modulesManagerController', {
+        });
+        modules.init();
+        
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
         shortcut = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
@@ -51,7 +52,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             }
         }
     },
-    onClickButton: function () {
+    /*onClickButton: function () {
         // Remove the localStorage key/value
         localStorage.removeItem('LoggedIn');
         // Remove Main View
@@ -60,7 +61,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         Ext.create({
             xtype: 'login'
         });
-    },
+    },*/
     onLogout: function () {
         localStorage.removeItem('LoggedIn');
         this.getView().destroy();
@@ -76,7 +77,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
     },
     
-    createShortcuts(){
+    createShortcuts: function(){
         
     }
 });

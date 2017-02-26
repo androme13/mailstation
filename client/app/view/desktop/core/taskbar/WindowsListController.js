@@ -39,6 +39,7 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
                     text: 'Minimiser',
                     handler: this.minimizeByContextMenu
                 },
+                '-',
                 {
                     text: 'Fermer',
                     handler: this.closeByContextMenu
@@ -97,7 +98,6 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
             button.up().getController().fireEvent('restoreFromMaxWindow', button.winId);
             this.setText('Maximiser');
         }
-        //button.up().getController().fireEvent('maximizeWindow', button.winId);
     },
     minimizeByContextMenu: function (item) {
         var button = Ext.getCmp(item.up().buttonParent);

@@ -21,62 +21,6 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
     plugins: 'viewport',
     ui: 'navigation',
     bodyStyle: "background-image:url(app/view/desktop/core/wallpapers/black-and-white-city-skyline-buildings.jpg) !important",
-    //items:[this.shortcut.shortcuts],
-    //bodyStyle: {"background-color": "grey"},
-    /*items: [
-     {
-     xtype: 'button',
-     style: ' background: transparent !important;'
-     background-image: url(app/view/modules/emailsrouting/rsc/img/shortcut.png) !important;width:80px!important;height:80px!important;margin-right: auto !important; margin-left: auto !important;',
-     bodyStyle: 'outline: 0px',
-     border: 0,
-     width: 64,
-     height: 64,
-     // icon: 'app/view/modules/emailsrouting/rsc/img/shortcut.png',
-     //cls:' background-image: url(app/view/modules/emailsrouting/rsc/img/shortcut.png) !important;',
-     iconAlign: 'top',
-     //scale: 'large',
-     //text: "test",
-     html: '<span class="bigBtn">Damn you hayate</span>',
-     handler: function () {
-     this.cancelFocus();
-     console.log('shortcut button click');
-     }
-     
-     },
-     {
-     xtype: 'panel',
-     //draggable: true,
-     layout: {
-     type: 'vbox',
-     align: 'center',
-     pack: 'center'
-     },
-     //bodyStyle: 'opacity:0.5;',
-     bodyStyle: 'background:transparent;',
-     maxHeight: 65,
-     maxWidth: 65,
-     items: [
-     {
-     xtype: 'image',
-     src: 'app/view/modules/emailsrouting/rsc/img/shortcut.png',
-     alt: "Smiley face"
-     },
-     {
-     xtype: 'label',
-     text: 'test'
-     }
-     ],
-     listeners: {
-     click: function () {
-     console.log('shortcut click');
-     },
-     dblclick: function () {
-     console.log('shortcut double click');
-     },
-     element: 'body'
-     }
-     }],*/
     dockedItems: [{
             dock: 'bottom',
             items: [{
