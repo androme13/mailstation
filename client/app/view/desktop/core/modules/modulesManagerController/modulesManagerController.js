@@ -14,7 +14,6 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                 {
                     path: 'Desktop.view.modules.emailsrouting.EmailsRouting',
                     loaded: false
-
                 }
         );
 
@@ -33,7 +32,7 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
     
     loadModule: function (module) {
         if (module.path && module.loaded === false) {
-            Ext.require(['Desktop.view.modules.emailsrouting.EmailsRouting'], function () {
+            Ext.require(module.path, function () {
                 module.module = Ext.create(module.path, {
                 });
                 module.loaded = true;
@@ -45,7 +44,7 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
     {
         Ext.each(this._modules, function (module) {
             if (module.path && module.loaded === false) {
-                Ext.require(['Desktop.view.modules.emailsrouting.EmailsRouting'], function () {
+                Ext.require(module.path, function () {
                     module.module = Ext.create(module.path, {
                     });
                     module.loaded = true;

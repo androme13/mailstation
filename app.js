@@ -12,6 +12,7 @@ var compression = require('compression');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var direct = require('extdirect');
+var monitor = require('./modules/core/monitor.js');
 var directConfig = require('./direct-config');
 var directApi = direct.initApi(directConfig);
 var directRouter = direct.initRouter(directConfig);
@@ -31,8 +32,9 @@ var winston = require('winston')
  ]
  });*/
 global.log = require("winston-color");
-global.Monitor={};
-
+//global.Monitor={};
+monitor.init();
+//monitor.stop();
 global.log.info("MailStation V0.0.1");
 global.log.info("MailStation Init ...");
 
@@ -45,6 +47,13 @@ global.pool = mysql.createPool({
     debug: false,
     multipleStatements: true
 });
+
+
+function getDirectories (srcpath) {
+  return fs.readdirSync(srcpath)
+    .filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
+};
+
 
 var sslOpts = {
     key: fs.readFileSync('ssl/certif.key'),
@@ -153,12 +162,12 @@ function parallel(middlewares) {
 ;
 
 //création serveur http et redirection vers https
-HTTPServer = http.createServer(function (req, res) {
+/*HTTPServer = http.createServer(function (req, res) {
     res.writeHead(301, {
         Location: "https://" + serverConfig.ServerConfig.host.toString() + ":" + serverConfig.ServerConfig.HTTPSPort.toString()
     });
     res.end();
-}).listen(serverConfig.ServerConfig.HTTPPort);
+}).listen(serverConfig.ServerConfig.HTTPPort);*/
 
 // creation serveur https
 HTTPSServer = https.createServer(sslOpts, app).listen(serverConfig.ServerConfig.HTTPSPort);

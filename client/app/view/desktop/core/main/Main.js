@@ -19,7 +19,14 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
     //margin: '5 5 5 5',
     plugins: 'viewport',
     ui: 'navigation',
-    bodyStyle: "background-image:url(app/view/desktop/core/wallpapers/black-and-white-city-skyline-buildings.jpg) !important",
+    //bodyStyle: "background-image:url(app/view/desktop/core/wallpapers/black-and-white-city-skyline-buildings.jpg) !important",
+    bodyStyle: {
+        //background:'#000000',
+        backgroundImage: 'url(app/view/desktop/core/wallpapers/black-and-white-city-skyline-buildings.jpg)',
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'bottom left'
+    },
     dockedItems: [{
             dock: 'bottom',
             items: [{

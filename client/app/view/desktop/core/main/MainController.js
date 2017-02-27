@@ -55,18 +55,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 
             }
         }
-    },
-    /*onClickButton: function () {
-        // Remove the localStorage key/value
-        localStorage.removeItem('LoggedIn');
-        // Remove Main View
-        this.getView().destroy();
-        // Add the Login Window
-        Ext.create({
-            xtype: 'login'
-        });
-    },*/
-    onLogout: function () {
+    },    onLogout: function () {
         localStorage.removeItem('LoggedIn');
         this.getView().destroy();
         //this.getView().hide();
