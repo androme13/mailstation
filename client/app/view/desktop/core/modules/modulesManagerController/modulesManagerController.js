@@ -49,10 +49,14 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                     module.module = Ext.create(module.path, {
                     });
                     module.loaded = true;
+                    console.log('module manager :',module.module);
+
                 });
             }
         });
-        console.log(this._modules);
     },
+    unloadModule:function(module){
+        
+    }
 });
 

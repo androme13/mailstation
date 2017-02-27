@@ -30,6 +30,7 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
             //layoutConfig: { align: "stretch" },
             items: [{
                     xtype: 'panel',
+                    itemId: 'programsSpace',
                     //margin: '0 10 0 5',
                     padding: 5,
                     layout: 'vbox',
@@ -54,6 +55,7 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
                     ]},
                 {
                     xtype: 'panel',
+                    itemId: 'userSpace',
                     padding: 5,
                     layout: 'vbox',
                     flex: 1,
