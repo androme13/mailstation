@@ -23,8 +23,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         this.doRequires();
         modules = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
         });
-        //modules.loadAllModules();
-        console.log('modules :',modules.modules);
+        modules.loadAllModules();
+        var modu = modules.modules[0];
+        console.log('module :',modu);
         
         //console.log(modules);
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {

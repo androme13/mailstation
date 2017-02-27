@@ -26,18 +26,6 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                 }
             }
         });
-
-        //me = this;
-        /*Ext.require(['Desktop.view.modules.emailsrouting.EmailsRouting'], function () {
-         me.createModules();
-         });  /    
-         },
-         listen: {
-         controller: {
-         /* 'window': {
-         //winMinimize: 'hideWindow',
-         winClose: 'winClose'
-         }*/
     },
     getModules: function(){
       return this._modules;  
@@ -46,7 +34,7 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
     loadModule: function (module) {
         if (module.path && module.loaded === false) {
             Ext.require(['Desktop.view.modules.emailsrouting.EmailsRouting'], function () {
-                module.object = Ext.create(module.path, {
+                module.module = Ext.create(module.path, {
                 });
                 module.loaded = true;
             });
@@ -55,11 +43,10 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
     },
     loadAllModules: function ()
     {
-
         Ext.each(this._modules, function (module) {
             if (module.path && module.loaded === false) {
                 Ext.require(['Desktop.view.modules.emailsrouting.EmailsRouting'], function () {
-                    module.object = Ext.create(module.path, {
+                    module.module = Ext.create(module.path, {
                     });
                     module.loaded = true;
                 });
