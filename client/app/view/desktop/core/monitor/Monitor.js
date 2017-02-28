@@ -17,9 +17,12 @@ Ext.define('Desktop.view.desktop.core.monitor.Monitor', {
         windowIcon: '/rsc/img/icon.png'
     },
     controller: 'monitor',
-    margins: '0,0,0,0',
+    //margins: '0,0,0,0',
     minHeight: 100,
     minWidth: 100,
+   // height: 400,
+   // width:600,
+    //layout: 'fit',
     mouseIn: false,
     style: {
         '-webkit-user-select': 'none'
@@ -30,7 +33,6 @@ Ext.define('Desktop.view.desktop.core.monitor.Monitor', {
                 // margins: '0,0,0,0',
                 // height : 20
     },
-    items: [],
-    listeners: {
-    }
+    items: []
+
 });

@@ -14,10 +14,10 @@ Ext.define('Desktop.view.desktop.core.monitor.MonitorController', {
         this.memStore = Ext.create('Ext.data.Store', {
             fields: ['name', 'data1'],
             data: [{
-                    name: 'metric one',
+                    name: 'Total mem',
                     data1: 50
                 }, {
-                    name: 'metric two',
+                    name: 'Free mem',
                     data1: 100
                 }]
         });
@@ -27,9 +27,11 @@ Ext.define('Desktop.view.desktop.core.monitor.MonitorController', {
             run: function () {
                 ExtRemote.core.DXMonitor.get('Hi!',
                         function (res) {
-                            //var record = this.view.memStore.getAt(0);
-                            //record.set("name", "id");
-                            console.dir(me);
+                            var record = me.memStore.getAt(0);
+                            record.set("data1", res.data.totalMem);
+                            record = me.memStore.getAt(1);
+                            record.set("data1", res.data.freeMem);
+                            //console.dir(record);
                         }
                 );
             },
@@ -40,22 +42,49 @@ Ext.define('Desktop.view.desktop.core.monitor.MonitorController', {
     createMemChart: function () {
         var memChart = Ext.create({
             xtype: 'polar',
-            //renderTo: document.body,
-            width: 200,
-            height: 200,
-            theme: 'green',
-            interactions: ['rotate', 'itemhighlight'],
-            store: this.memStore,
-            series: {
-                type: 'pie',
-                highlight: true,
-                angleField: 'data1',
-                label: {
-                    field: 'name',
-                    display: 'rotate'
-                },
-                donut: 30
-            }
+        reference: 'chart',
+        width: 100,
+        height: 100,
+        //insetPadding: 50,
+       // innerPadding: 20,
+        store: this.memStore,
+       /* legend: {
+            docked: 'bottom'
+        },*/
+        interactions: ['rotate', 'itemhighlight'],
+      /*  sprites: [{
+            type: 'text',
+            text: 'Donut Charts - Basic',
+            fontSize: 22,
+            width: 100,
+            height: 30,
+            x: 40, // the sprite x position
+            y: 20  // the sprite y position
+        }, {
+            type: 'text',
+            text: 'Data: IDC Predictions - 2017',
+            x: 12,
+            y: 425
+        }, {
+            type: 'text',
+            text: 'Source: Internet',
+            x: 12,
+            y: 440
+        }],*/
+        series: [{
+            type: 'pie',
+            angleField: 'data1',
+            donut: 50,
+            label: {
+                field: 'name',
+                display: 'outside'
+            },
+            highlight: true,
+            /*tooltip: {
+                trackMouse: true,
+                renderer: 'onSeriesTooltipRender'
+            }*/
+        }]
         });
         this.view.items.add(memChart);
     }
