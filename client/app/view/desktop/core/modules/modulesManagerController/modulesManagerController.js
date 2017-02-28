@@ -16,6 +16,12 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                     loaded: false
                 }
         );
+        this._modules.push(
+                {
+                    path: 'Desktop.view.desktop.core.monitor.Monitor',
+                    loaded: false
+                }
+        );
 
         //get - set
         Object.defineProperties(this, {
@@ -26,10 +32,9 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
             }
         });
     },
-    getModules: function(){
-      return this._modules;  
+    getModules: function () {
+        return this._modules;
     },
-    
     loadModule: function (module) {
         if (module.path && module.loaded === false) {
             Ext.require(module.path, function () {
@@ -48,14 +53,14 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                     module.module = Ext.create(module.path, {
                     });
                     module.loaded = true;
-                    console.log('module manager :',module.module);
+                    console.log('module manager :', module.module);
 
                 });
             }
         });
     },
-    unloadModule:function(module){
-        
+    unloadModule: function (module) {
+
     }
 });
 

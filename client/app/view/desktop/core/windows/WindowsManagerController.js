@@ -33,7 +33,7 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
     },
     activateWindow: function (id) {
         var win = Ext.WindowManager.get(id);
-        if (win){
+        if (win) {
             Ext.WindowManager.bringToFront(id);
         }
     },
@@ -42,10 +42,20 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
         window.close();
     },
     createWindow: function (place) {
-        var module = Ext.create('Desktop.view.desktop.core.windows.Window');
+        var module = Ext.create('Desktop.view.desktop.core.windows.Window',
+        {module:'Desktop.view.modules.emailsrouting.EmailsRouting'});
         var window = place.add(module);
         //var window = place.add(Ext.create('Desktop.view.desktop.core.windows.Window'));
-        
+
+        // on lance l'event pour la création du bouton géré par windowlistcontroller
+        this.fireEvent('createWindow', window);
+    },
+    createWindow2: function (place) {
+        var module = Ext.create('Desktop.view.desktop.core.windows.Window',
+        {module:'Desktop.view.desktop.core.monitor.Monitor'});
+        var window = place.add(module);
+        //var window = place.add(Ext.create('Desktop.view.desktop.core.windows.Window'));
+
         // on lance l'event pour la création du bouton géré par windowlistcontroller
         this.fireEvent('createWindow', window);
     },
@@ -76,8 +86,8 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
     },
     showWindow: function (id) {
         var win = Ext.getCmp(id);
-        if (win){
-            win.show();         
+        if (win) {
+            win.show();
         }
     },
     winClose: function (win) {

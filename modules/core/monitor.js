@@ -53,7 +53,7 @@ function start(MonitorConfig) {
         global.Monitor.freeMem=os.freemem();
         global.Monitor.loadAVG=os.loadavg();
         global.Monitor.CPUS=os.cpus();
-        global.log.info('monitor:',global.Monitor);
+       // global.log.info('monitor:',global.Monitor);
         // on relis les ressources cpu pour faire un dif et avoir la vraie valeur
        /*setTimeout(function () {
             global.log.info('monitor:',global.Monitor)

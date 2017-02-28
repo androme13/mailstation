@@ -51,6 +51,15 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
                                     //  xtype: 'button',
                                     //   text: 'start',
                                     //handler: 'toggle'
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Monitor',
+                            handler: 'showWindow2'
+                                    // width : 150
+                                    //  xtype: 'button',
+                                    //   text: 'start',
+                                    //handler: 'toggle'
                         }
                     ]},
                 {

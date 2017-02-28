@@ -1,12 +1,11 @@
 /* 
- * DXMonitor
- * (C) Androme 2015
- * 
+ * MailStation by Androme (2017)
+ * File :
+ * Description :
+ * Comment :
  */
-var log = global.log;
+
 var DXCommon = require('../../tools/DXCommon.js');
-
-
 var DXMonitor = {
     // method signature has 5 parameters
     /**
@@ -18,47 +17,12 @@ var DXMonitor = {
      * @param response only if "appendRequestResponseObjects" enabled
      */
 
-
-    getCPUUsage: function (params, callback, sessionID, request, response) {       
-        DXCommon.sendMsg(true,null,global.Monitor.ZM.CPU,callback,2);
-       /* callback({
-            success: success,
-            message: 'getshortcuts',
-            data: global.Monitor.ZM.CPU
-        });*/
-    },
-    getMEMUsage: function (params, callback, sessionID, request, response) {       
-        DXCommon.sendMsg(true,null,global.Monitor.ZM.MEM,callback,2);
-       /* callback({
-            success: success,
-            message: 'getshortcuts',
-            data: global.Monitor.ZM.CPU
-        });*/
-    },
-    getZMUsage: function (params, callback, sessionID, request, response) {       
-        var zmusage={'cpu' :global.Monitor.ZM.CPU,'mem':global.Monitor.ZM.MEM};
-        DXCommon.sendMsg(true,null,zmusage,callback,2);
-       /* callback({
-            success: success,
-            message: 'getshortcuts',
-            data: global.Monitor.ZM.CPU
-        });*/
+    get: function (params, callback, sessionID, request, response) {
+        // on set les parametres par défaut si ils sont absents
+        if (!params)
+            var params = {};
+        DXCommon.sendMsg(true, null, global.Monitor,callback,1,null);
     }
-};
-
-function child(img) {
-    return {qtip: img, text: getTextOfWallpaper(img), iconCls: '', leaf: true};
-};
-
-function getTextOfWallpaper(path) {
-    var text = path, slash = path.lastIndexOf('/');
-    if (slash >= 0) {
-        text = text.substring(slash + 1);
-    }
-    var dot = text.lastIndexOf('.');
-    //text = Ext.String.capitalize(text.substring(0, dot));
-    text = text.replace(/[-]/g, ' ');
-    return text;
 };
 
 module.exports = DXMonitor;

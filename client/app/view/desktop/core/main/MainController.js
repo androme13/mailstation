@@ -20,6 +20,11 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                     console.dir(res);
                 }
         );
+        ExtRemote.core.DXMonitor.get('Hi!',
+                function (res) {
+                    console.dir(res);
+                }
+        );
         this.doRequires();
         modules = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
         });
@@ -27,7 +32,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         modules.loadAllModules();
         var modu = modules.modules[0]._module;
         //console.log('module :',modu);
-        
+
         //console.log(modules);
         windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
@@ -46,16 +51,16 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         controller: {
             'startmenu': {
                 logoutEvent: 'onLogout',
-                'showWindow': 'onShowWindow'
+                'showWindow': 'onShowWindow',
+                'showWindow2': 'onShowWindow2'
             },
             'windowsmanager': {
                 showWindow: 'onShowWindow'
             },
-            'modulesmanager':{
-                
+            'modulesmanager': {
             }
         }
-    },    onLogout: function () {
+    }, onLogout: function () {
         localStorage.removeItem('LoggedIn');
         this.getView().destroy();
         //this.getView().hide();
@@ -66,11 +71,14 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     onShowWindow: function () {
         windowsManager.createWindow(this.view);
     },
+    onShowWindow2: function () {
+        windowsManager.createWindow2(this.view);
+    },
     doRequires: function () {
+        Ext.require('Desktop.view.desktop.core.monitor.Monitor');
         Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
     },
-    
-    createShortcuts: function(){
-        
+    createShortcuts: function () {
+
     }
 });
