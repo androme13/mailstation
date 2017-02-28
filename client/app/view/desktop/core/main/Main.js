@@ -13,7 +13,7 @@ Ext.define('Desktop.view.desktop.core.main.Main', {
         'Ext.window.MessageBox',
         'Desktop.view.desktop.core.main.MainController',
         'Desktop.view.desktop.core.taskbar.Taskbar',
-        'Desktop.view.desktop.core.modules.monitor.Monitor'
+        'Desktop.view.desktop.core.monitor.Monitor'
         
     ],
     controller: 'main',

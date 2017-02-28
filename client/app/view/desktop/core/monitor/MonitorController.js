@@ -21,72 +21,69 @@ Ext.define('Desktop.view.desktop.core.monitor.MonitorController', {
                     data1: 100
                 }]
         });
-        this.createMemChart();
+        
         var me = this;
         Ext.TaskManager.start({
             run: function () {
                 ExtRemote.core.DXMonitor.get('Hi!',
                         function (res) {
                             var record = me.memStore.getAt(0);
-                            record.set("data1", res.data.totalMem);
+                            record.set("data1", res.data.totalMem/1000);
                             record = me.memStore.getAt(1);
-                            record.set("data1", res.data.freeMem);
+                            record.set("data1", res.data.freeMem/1000);
                             //console.dir(record);
                         }
                 );
             },
             interval: 5000
         });
+        this.createMemChart();
         console.log(this.memStore);
     },
     createMemChart: function () {
+        
         var memChart = Ext.create({
-            xtype: 'polar',
-        reference: 'chart',
-        width: 100,
+        xtype: 'polar',
+        colors: ['red','green'],
+        width: '100%',
         height: 100,
-        //insetPadding: 50,
-       // innerPadding: 20,
         store: this.memStore,
-       /* legend: {
-            docked: 'bottom'
-        },*/
+        //insetPadding: 50,
+        
+        legend: {
+            docked: 'bottom',
+        },
         interactions: ['rotate', 'itemhighlight'],
-      /*  sprites: [{
-            type: 'text',
-            text: 'Donut Charts - Basic',
-            fontSize: 22,
-            width: 100,
-            height: 30,
-            x: 40, // the sprite x position
-            y: 20  // the sprite y position
-        }, {
-            type: 'text',
-            text: 'Data: IDC Predictions - 2017',
-            x: 12,
-            y: 425
-        }, {
-            type: 'text',
-            text: 'Source: Internet',
-            x: 12,
-            y: 440
-        }],*/
         series: [{
             type: 'pie',
             angleField: 'data1',
-            donut: 50,
-            label: {
+            /*label: {
                 field: 'name',
-                display: 'outside'
-            },
+                calloutLine: {
+                    length: 60,
+                    width: 3
+                    // specifying 'color' is also possible here
+                }
+            },*/
             highlight: true,
-            /*tooltip: {
-                trackMouse: true,
-                renderer: 'onSeriesTooltipRender'
-            }*/
         }]
         });
+        //console.log(this.view);
+       /* var panel = Ext.create('widget.panel', {
+            title: 'All Open Requests by Focus Area and Target Completion Date',
+            cls: 'printer',
+            //height: 900,
+            width: '95%',
+            resizable: true,
+            resizeHandles: 's',
+            bodyPadding: '5 0 20 10',
+            autoScroll: false,
+            layout: 'fit',
+            //renderTo: 'contents',
+            //items: memChart,
+        });*/
         this.view.items.add(memChart);
+        
     }
 });
 

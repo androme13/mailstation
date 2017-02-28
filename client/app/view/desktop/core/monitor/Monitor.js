@@ -20,19 +20,19 @@ Ext.define('Desktop.view.desktop.core.monitor.Monitor', {
     //margins: '0,0,0,0',
     minHeight: 100,
     minWidth: 100,
-   // height: 400,
-   // width:600,
+    height: 300,
+    width:300,
     //layout: 'fit',
-    mouseIn: false,
-    style: {
+   // mouseIn: false,
+   /* style: {
         '-webkit-user-select': 'none'
-    },
-    showed: false,
-    header: {
+    },*/
+    //showed: false,
+  /*  header: {
         title: "Monitor"
                 // margins: '0,0,0,0',
                 // height : 20
-    },
-    items: []
+    },*/
+    //items: this.memChart
 
 });
