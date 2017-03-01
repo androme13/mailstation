@@ -144,7 +144,7 @@ app.get(directConfig.classRouteUrl, function (req, res) {
 
 // POST request process route and calls class
 app.post(directConfig.classRouteUrl, function (req, res) {
-    console.log("direct call");
+    //console.log("direct call");
     //console.log(req);
     // console.log(res);
     //res.writeHead(401, {'Content-Type': 'application/json'});

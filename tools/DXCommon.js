@@ -297,7 +297,7 @@ module.exports = {
             log.info(data);
         if (success === true)
         {
-            console.log(data);
+            //console.log(data);
             callback(null, {
                 success: true,
                 totalCount: totalCount,

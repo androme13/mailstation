@@ -38,7 +38,7 @@ Ext.define('Desktop.view.desktop.core.monitor.MonitorController', {
             interval: 5000
         });
         this.createMemChart();
-        console.log(this.memStore);
+       // console.log(this.memStore);
     },
     createMemChart: function () {
         
