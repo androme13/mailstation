@@ -7,7 +7,7 @@
 Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     extend: 'Ext.app.Controller',
     alias: 'controller.shortcuts',
-    init: function () {
+    init: function (modules) {
         console.log("shortcuts generate init");
         var idCSS = '' + Math.floor(Math.random() * 100);
         Ext.util.CSS.createStyleSheet('', idCSS);
@@ -23,6 +23,7 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
             height: 100,
             html: '<span class="shortcutText">Routage des mails</span>',
             handler: function () {
+                this.fireEvent('showModule', modules[0].path);
                 console.log('shortcut button click');
             }
         };

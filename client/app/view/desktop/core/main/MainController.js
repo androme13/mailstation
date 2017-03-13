@@ -15,7 +15,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     ],
     init: function () {
         console.log("main controller init");
-        ExtRemote.core.hello.wave('Hi!',
+       /* ExtRemote.core.hello.wave('Hi!',
                 function (res) {
                     console.dir(res);
                 }
@@ -24,27 +24,26 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 function (res) {
                     console.dir(res);
                 }
-        );
-        this.doRequires();
-        modules = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
+        );*/
+        modulesMngr = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
         });
         //modules.
-        modules.loadAllModules();
-        var modu = modules.modules[0]._module;
-        //console.log('module :',modu);
+        modulesMngr.loadAllModules();
+        var modu = modulesMngr.modules;
+        //console.log('modules :',modu);
 
         //console.log(modules);
-        windowsManager = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
+        windowsMngr = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-        shortcut = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
+        shortcuts = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         });
-        shortcut.init();
+        shortcuts.init(modulesMngr.modules);
         //console.log(shortcut.shortcuts);
-        this.view.add(shortcut.shortcuts);
+        this.view.add(shortcuts.shortcuts);
     },
     show: function () {
 
-        // console.log(windowsManager);
+        // console.log(windowsMngr);
 
     },
     listen: {
@@ -58,6 +57,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 showWindow: 'onShowWindow'
             },
             'modulesmanager': {
+            },
+            'shortcuts':{
+                'showModule': 'onShowModule'
             }
         }
     }, onLogout: function () {
@@ -68,15 +70,19 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             xtype: 'login'
         });
     },
+    onShowModule: function(modulePath){
+        
+      console.log('onshowmodule',Path);  
+    },
     onShowWindow: function () {
-        windowsManager.createWindow(this.view);
+        windowsMngr.createWindow(this.view);
     },
     onShowWindow2: function () {
-        windowsManager.createWindow2(this.view);
+        windowsMngr.createWindow2(this.view);
     },
     doRequires: function () {
-        Ext.require('Desktop.view.desktop.core.monitor.Monitor');
-        Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
+        //Ext.require('Desktop.view.desktop.core.monitor.Monitor');
+        //Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');
     },
     createShortcuts: function () {
 

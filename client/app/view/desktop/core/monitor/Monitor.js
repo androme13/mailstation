@@ -8,6 +8,11 @@ Ext.define('Desktop.view.desktop.core.monitor.Monitor', {
     extend: 'Ext.panel.Panel',
     xtype: 'app-main-monitor',
     requires: [
+        'Ext.chart.PolarChart',
+        'Ext.chart.series.Pie',
+        'Ext.chart.interactions.Rotate',
+        'Ext.chart.interactions.ItemHighlight',
+        
         'Desktop.view.desktop.core.monitor.MonitorController'
     ],
     launcher: {

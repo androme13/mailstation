@@ -54,7 +54,6 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                     });
                     module.loaded = true;
                     console.log('module manager :', module.module);
-
                 });
             }
         });
