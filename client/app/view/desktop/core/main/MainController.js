@@ -35,11 +35,11 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         //console.log(modules);
         windowsMngr = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-        shortcuts = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
+        shortcutsMngr = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         });
-        shortcuts.init(modulesMngr.modules);
+        shortcutsMngr.init(modulesMngr.modules);
         //console.log(shortcut.shortcuts);
-        this.view.add(shortcuts.shortcuts);
+        this.view.add(shortcutsMngr.shortcuts);
     },
     show: function () {
 
@@ -70,9 +70,8 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             xtype: 'login'
         });
     },
-    onShowModule: function(modulePath){
-        
-      console.log('onshowmodule',Path);  
+    onShowModule: function(modulePath){       
+      console.log('onshowmodule',modulePath);  
     },
     onShowWindow: function () {
         windowsMngr.createWindow(this.view);

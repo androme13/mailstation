@@ -43,7 +43,7 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                 module.loaded = true;
             });
         }
-        console.log(this._modules);
+        //console.log(this._modules);
     },
     loadAllModules: function ()
     {
@@ -53,7 +53,8 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                     module.module = Ext.create(module.path, {
                     });
                     module.loaded = true;
-                    console.log('module manager :', module.module);
+                    module.launcher=module.module.launcher;
+                   // console.log('module manager :', module.module);
                 });
             }
         });

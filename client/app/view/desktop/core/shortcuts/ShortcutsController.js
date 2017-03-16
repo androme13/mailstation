@@ -8,25 +8,31 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     extend: 'Ext.app.Controller',
     alias: 'controller.shortcuts',
     init: function (modules) {
-        console.log("shortcuts generate init");
+        console.log("shortcuts generate init", modules);
         var idCSS = '' + Math.floor(Math.random() * 100);
         Ext.util.CSS.createStyleSheet('', idCSS);
         Ext.util.CSS.swapStyleSheet(idCSS, 'app/view/desktop/core/shortcuts/style.css');
-        this.shortcuts = {
-            xtype: 'button',
-            style: ' background: transparent !important;',
-            border: 0,
-            draggable: true,
-            iconCls: 'shortcutIcon80',
-            iconAlign: 'top',
-            width: 120,
-            height: 100,
-            html: '<span class="shortcutText">Routage des mails</span>',
-            handler: function () {
-                this.fireEvent('showModule', modules[0].path);
-                console.log('shortcut button click');
-            }
-        };
+        me = this;
+        this.shortcuts = []
+        Ext.each(modules, function (module) {
+            me.shortcuts.push({
+                xtype: 'button',
+                style: ' background: transparent !important;',
+                border: 0,
+                draggable: true,
+                iconCls: 'shortcutIcon80',
+                iconAlign: 'top',
+                width: 120,
+                height: 100,
+                tooltip: module.path,
+                html: '<span class="shortcutText">'+module.path+'</span>',
+                path: module.path,
+                handler: function (item) {
+                    me.shortcutClick(item);
+                }
+            });
+        });
+
     },
     addShortcut: function () {
 
@@ -36,5 +42,11 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     },
     getShortcuts: function () {
 
+    },
+    shortcutClick: function (item) {
+        console.log('shortcut button click', item);
+        this.fireEvent('showModule', item.path);
+
     }
+
 });
