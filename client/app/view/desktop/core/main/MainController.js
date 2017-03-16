@@ -15,21 +15,21 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     ],
     init: function () {
         console.log("main controller init");
-       /* ExtRemote.core.hello.wave('Hi!',
-                function (res) {
-                    console.dir(res);
-                }
-        );
-        ExtRemote.core.DXMonitor.get('Hi!',
-                function (res) {
-                    console.dir(res);
-                }
-        );*/
+        /* ExtRemote.core.hello.wave('Hi!',
+         function (res) {
+         console.dir(res);
+         }
+         );
+         ExtRemote.core.DXMonitor.get('Hi!',
+         function (res) {
+         console.dir(res);
+         }
+         );*/
         modulesMngr = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
         });
         //modules.
         modulesMngr.loadAllModules();
-        var modu = modulesMngr.modules;
+        //var modu = modulesMngr.modules;
         //console.log('modules :',modu);
 
         //console.log(modules);
@@ -37,7 +37,7 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         });
         shortcutsMngr = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
         });
-        shortcutsMngr.init(modulesMngr.modules);
+        //shortcutsMngr.init(modulesMngr.modules);
         //console.log(shortcut.shortcuts);
         this.view.add(shortcutsMngr.shortcuts);
     },
@@ -57,9 +57,10 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 showWindow: 'onShowWindow'
             },
             'modulesmanager': {
+                //'addShortcut': 'onAddShortcut'
             },
-            'shortcuts':{
-                'showModule': 'onShowModule'
+            'shortcuts': {
+                'addShortcut': 'onAddShortcut'
             }
         }
     }, onLogout: function () {
@@ -70,8 +71,12 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
             xtype: 'login'
         });
     },
-    onShowModule: function(modulePath){       
-      console.log('onshowmodule',modulePath);  
+    onAddShortcut: function (module) {
+        console.log('onAddShortcut', module);
+
+    },
+    onShowModule: function (modulePath) {
+        console.log('onshowmodule', modulePath);
     },
     onShowWindow: function () {
         windowsMngr.createWindow(this.view);

@@ -6,9 +6,14 @@
  */
 
 Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
+    extend: 'Ext.app.Controller',
     alias: 'controller.modulesmanager',
-    constructor: function () {
+    constructor: function (config) {
         console.log("modulesmanager controller init");
+                this.callParent(arguments);
+
+//Ext.apply(this, config || {});
+        //me = this;
         this._modules = [];
         this._modules.push(
                 {
@@ -31,9 +36,14 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
                 }
             }
         });
+        //this.fireEvent('addShortcut');
+        me = this;
     },
     getModules: function () {
         return this._modules;
+    },
+    scanmodules: function(){
+        
     },
     loadModule: function (module) {
         if (module.path && module.loaded === false) {
@@ -47,17 +57,28 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
     },
     loadAllModules: function ()
     {
+       console.log('loadallmodules : ',this)
+       var me = this;
         Ext.each(this._modules, function (module) {
             if (module.path && module.loaded === false) {
                 Ext.require(module.path, function () {
                     module.module = Ext.create(module.path, {
                     });
+                    //notify(module);
+                    me.notify(module);
+                    module.launcher = module.module.launcher;
                     module.loaded = true;
-                    module.launcher=module.module.launcher;
-                   // console.log('module manager :', module.module);
+                    // console.log('module manager :', module.module);
                 });
             }
         });
+    },
+    notify: function(module){
+        console.log('notify');
+       //Desktop.app.fireEvent('addShortcut', module);
+       this.fireEvent('addShortcut', module);
+                           // this.fireEvent('addShortcut', module);
+
     },
     unloadModule: function (module) {
 
