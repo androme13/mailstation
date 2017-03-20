@@ -13,8 +13,8 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         'Desktop.view.desktop.core.shortcuts.shortcutsController'
 
     ],
-    shortcutsMngr: Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
-    }),
+    shortcutsMngr: Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {}),
+    modulesMngr: Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {}),
     init: function () {
         console.log("main controller init");
         /* ExtRemote.core.hello.wave('Hi!',
@@ -27,10 +27,9 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
          console.dir(res);
          }
          );*/
-        modulesMngr = Ext.create('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesManagerController', {
-        });
+
         //modules.
-        modulesMngr.loadAllModules();
+        this.modulesMngr.loadAllModules();
         //var modu = modulesMngr.modules;
         //console.log('modules :',modu);
 
@@ -52,17 +51,17 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         controller: {
             'startmenu': {
                 logoutEvent: 'onLogout',
-                'showWindow': 'onShowWindow',
-                'showWindow2': 'onShowWindow2'
+                'showWindow': 'onShowModule',
             },
             'windowsmanager': {
                 showWindow: 'onShowWindow'
             },
             'modulesmanager': {
-                'addShortcut': 'onAddShortcut'
+                'addShortcut': 'onAddShortcut',
+                'showWindow': 'onShowWindow'
             },
             'shortcuts': {
-                '//addShortcut': 'onAddShortcut'
+                'showModule': 'onShowModule'
             }
         }
     }, onLogout: function () {
@@ -74,26 +73,23 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         });
     },
     onAddShortcut: function (module) {
-        console.log('onAddShortcut', module);
-        console.log('this:', this);
-        console.log('this.shortcutsMngr:', this.shortcutsMngr);
-
-        //this.view.add(shortcutsMngr.shortcuts);
-
         var shortcut = this.shortcutsMngr.addShortcut(module);
-        console.log("raccourci crée :", shortcut);
         this.view.add(shortcut);
 
     },
     onShowModule: function (modulePath) {
-        console.log('onshowmodule', modulePath);
+        this.modulesMngr.showModule(modulePath);
     },
-    onShowWindow: function () {
-        windowsMngr.createWindow(this.view);
+    onShowWindow: function (module) {
+        windowsMngr.createWindow(module,this.view);
     },
-    onShowWindow2: function () {
-        windowsMngr.createWindow2(this.view);
-    },
+    /*onShowWindow2: function (module) {
+        windowsMngr.createWindow(module,this.view);
+    },*/
+    /*onShowModule:function(module){
+     console.log("show module");
+     },*/
+
     doRequires: function () {
         //Ext.require('Desktop.view.desktop.core.monitor.Monitor');
         //Ext.require('Desktop.view.modules.emailsrouting.EmailsRouting');

@@ -41,23 +41,17 @@ Ext.define('Desktop.view.desktop.core.windows.WindowsManagerController', {
         var window = Ext.getCmp(id);
         window.close();
     },
-    createWindow: function (place) {
+    createWindow: function (module,place) {
+        console.log("createwindow",module);
         var module = Ext.create('Desktop.view.desktop.core.windows.Window',
-        {module:'Desktop.view.modules.emailsrouting.EmailsRouting'});
+        {module:module.path});
+        //{module:'Desktop.view.modules.emailsrouting.EmailsRouting'});
         var window = place.add(module);
         //var window = place.add(Ext.create('Desktop.view.desktop.core.windows.Window'));
 
         // on lance l'event pour la création du bouton géré par windowlistcontroller
         this.fireEvent('createWindow', window);
-    },
-    createWindow2: function (place) {
-        var module = Ext.create('Desktop.view.desktop.core.windows.Window',
-        {module:'Desktop.view.desktop.core.monitor.Monitor'});
-        var window = place.add(module);
-        //var window = place.add(Ext.create('Desktop.view.desktop.core.windows.Window'));
-
-        // on lance l'event pour la création du bouton géré par windowlistcontroller
-        this.fireEvent('createWindow', window);
+        this.showWindow(window.id);
     },
     hideWindow: function (id) {
         var win = Ext.WindowManager.get(id);

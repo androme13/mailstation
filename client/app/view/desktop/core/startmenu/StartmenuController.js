@@ -22,25 +22,12 @@ Ext.define('Desktop.view.desktop.core.startmenu.StartmenuController', {
         console.log(this.view);
         var programsSpace = this.view.query('[itemId=programsSpace]');
         console.log('query:', programsSpace);
-        /* programsSpace.items.add({
-         xtype: 'button',
-         text: 'Routage',
-         handler: 'showWindow'
-         // width : 150
-         //  xtype: 'button',
-         //   text: 'start',
-         //handler: 'toggle'
-         }
-         );*/
     },
     onLogout: function () {
         this.fireEvent('logoutEvent');
     },
-    showWindow: function () {
-        this.fireEvent('showWindow');
-    },
-    showWindow2: function () {
-        this.fireEvent('showWindow2');
+    showWindow: function (menu) {
+        this.fireEvent('showWindow',menu.path);
     }
 });
 

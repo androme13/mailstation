@@ -75,7 +75,7 @@ Ext.define('Desktop.view.desktop.core.taskbar.WindowsListController', {
         window.animateTarget = button;
         // une fois le bouton crée on peut lancer l'event de la création du 
         // window géré par windowmanagercontroller
-        this.fireEvent('showWindow', window.id);
+        //this.fireEvent('showWindow', window.id);
     },
     removeWindowButton: function (id) {
         var buttons = this.view.query('[winId=' + id.toString() + ']');
