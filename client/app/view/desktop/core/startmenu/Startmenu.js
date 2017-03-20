@@ -21,8 +21,8 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
     showed: false,
     header: {
         title: "test"
-                // margins: '0,0,0,0',
-                // height : 20
+        // margins: '0,0,0,0',
+        // height : 20
     },
     items: [{
             layout: 'hbox',
@@ -42,26 +42,6 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
                                     //  xtype: 'button',
                                     //   text: 'start',
                                     //handler: 'toggle'
-                        },
-                        {
-                            xtype: 'button',
-                            text: 'Routage',
-                            handler: 'showWindow',
-                            path: 'Desktop.view.modules.emailsrouting.EmailsRouting',
-                            // width : 150
-                            //  xtype: 'button',
-                            //   text: 'start',
-                            //handler: 'toggle'
-                        },
-                        {
-                            xtype: 'button',
-                            text: 'Monitor',
-                            handler: 'showWindow',
-                            path: 'Desktop.view.desktop.core.monitor.Monitor',
-                            // width : 150
-                            //  xtype: 'button',
-                            //   text: 'start',
-                            //handler: 'toggle'
                         }
                     ]},
                 {
@@ -90,15 +70,15 @@ Ext.define('Desktop.view.desktop.core.startmenu.Startmenu', {
                 }]
         }],
     listeners: {
-        /* focusover: function () {
-         console.log("mousein");
-         
-         mouseIn = true;
-         },
-         focusleave: function () {
-         console.log("mouseout");
-         
-         mouseIn = false;
-         }*/
+       /* focusover: function () {
+            console.log("mousein");
+
+            mouseIn = true;
+        },
+        focusleave: function () {
+            console.log("mouseout");
+
+            mouseIn = false;
+        }*/
     }
 });

@@ -19,15 +19,32 @@ Ext.define('Desktop.view.desktop.core.startmenu.StartmenuController', {
          //handler: 'toggle'
          }*/
 
-        console.log(this.view);
+        //console.log(this.view);
         var programsSpace = this.view.query('[itemId=programsSpace]');
-        console.log('query:', programsSpace);
+       // console.log('query:', programsSpace[0]);
+        var button = Ext.create({
+            scope: this,
+            xtype: 'button',
+            text: 'Routage',
+            handler: 'showWindow',
+            path: 'Desktop.view.modules.emailsrouting.EmailsRouting',
+        });
+        programsSpace[0].items.add(button);
+        var button = Ext.create({
+            scope: this,
+            xtype: 'button',
+            text: 'Monitor',
+            handler: 'showWindow',
+            path: 'Desktop.view.desktop.core.monitor.Monitor',
+        });
+        programsSpace[0].items.add(button);
+
     },
     onLogout: function () {
         this.fireEvent('logoutEvent');
     },
     showWindow: function (menu) {
-        this.fireEvent('showWindow',menu.path);
+        this.fireEvent('showWindow', menu.path);
     }
 });
 
