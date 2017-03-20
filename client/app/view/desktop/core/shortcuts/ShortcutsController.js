@@ -44,7 +44,8 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     },
     addShortcut: function (module) {
         console.log('addshortcult :',module);
-        me.shortcuts.push({
+        this.shortcuts.push({
+            scope: this,
             xtype: 'button',
             style: ' background: transparent !important;',
             border: 0,
@@ -56,10 +57,14 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
             tooltip: module.path,
             html: '<span class="shortcutText">' + module.path + '</span>',
             path: module.path,
-            handler: function (item) {
-                me.shortcutClick(item);
+            handler: function (item) {     
+                //console.log(this);
+                //console.log(item);
+                this.shortcutClick(item);
+               // this.fireEvent('showModule', item.path);
             }
         });
+        return this.shortcuts[this.shortcuts.length - 1];
     },
     removeShortcut: function () {
 
@@ -68,6 +73,7 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
 
     },
     shortcutClick: function (item) {
+        console.log(this);
         console.log('shortcut button click', item);
         this.fireEvent('showModule', item.path);
 
@@ -75,7 +81,7 @@ Ext.define('Desktop.view.desktop.core.shortcuts.shortcutsController', {
     listen:{
          controller: {
             'modulesmanager': {
-              addShortcut: 'addShortcut',  
+             // addShortcut: 'addShortcut',  
             }
          }
     }

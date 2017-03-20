@@ -77,6 +77,7 @@ Ext.define('Desktop.view.desktop.core.modules.modulesmanagercontroller.modulesMa
         console.log('notify');
        //Desktop.app.fireEvent('addShortcut', module);
        this.fireEvent('addShortcut', module);
+       
                            // this.fireEvent('addShortcut', module);
 
     },

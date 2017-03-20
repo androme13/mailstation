@@ -13,6 +13,8 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         'Desktop.view.desktop.core.shortcuts.shortcutsController'
 
     ],
+    shortcutsMngr: Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
+    }),
     init: function () {
         console.log("main controller init");
         /* ExtRemote.core.hello.wave('Hi!',
@@ -35,11 +37,11 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
         //console.log(modules);
         windowsMngr = Ext.create('Desktop.view.desktop.core.windows.WindowsManagerController', {
         });
-        shortcutsMngr = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
-        });
+        //var shortcutsMngr = Ext.create('Desktop.view.desktop.core.shortcuts.shortcutsController', {
+        // });
         //shortcutsMngr.init(modulesMngr.modules);
         //console.log(shortcut.shortcuts);
-        this.view.add(shortcutsMngr.shortcuts);
+        //this.view.add(shortcutsMngr.shortcuts);
     },
     show: function () {
 
@@ -57,10 +59,10 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
                 showWindow: 'onShowWindow'
             },
             'modulesmanager': {
-                //'addShortcut': 'onAddShortcut'
+                'addShortcut': 'onAddShortcut'
             },
             'shortcuts': {
-                'addShortcut': 'onAddShortcut'
+                '//addShortcut': 'onAddShortcut'
             }
         }
     }, onLogout: function () {
@@ -73,6 +75,14 @@ Ext.define('Desktop.view.desktop.core.main.MainController', {
     },
     onAddShortcut: function (module) {
         console.log('onAddShortcut', module);
+        console.log('this:', this);
+        console.log('this.shortcutsMngr:', this.shortcutsMngr);
+
+        //this.view.add(shortcutsMngr.shortcuts);
+
+        var shortcut = this.shortcutsMngr.addShortcut(module);
+        console.log("raccourci crée :", shortcut);
+        this.view.add(shortcut);
 
     },
     onShowModule: function (modulePath) {
