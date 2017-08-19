@@ -15,8 +15,8 @@ Ext.define('Desktop.view.desktop.core.windows.Window', {
     maximizable: true,
     minimizable: true,
     constrainHeader: true,
-   // height: 600,
-    //width: 800,
+    height: 300,
+    width: 500,
    layout: 'fit',
    
     items: {
